@@ -1,6 +1,7 @@
 package entities;
 
 public class Rent {
+
     private String name;
     private String email;
 
@@ -12,6 +13,14 @@ public class Rent {
         this.email = email;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -21,6 +30,6 @@ public class Rent {
     }
 
     public String toString() {
-        return  name + ", " + email;
+        return name + ", " + email;
     }
 }
