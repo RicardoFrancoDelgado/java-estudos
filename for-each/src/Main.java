@@ -10,5 +10,7 @@ public class Main {
         for (String name : vect) {
             System.out.println(name);
         }
+
+
     }
 }
