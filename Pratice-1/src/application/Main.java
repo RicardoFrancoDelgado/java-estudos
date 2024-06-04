@@ -59,4 +59,5 @@ public class Main {
         Product prod = list.stream().filter(x -> x.getId() == id).findFirst().orElse(null);
         return prod != null;
     }
+
 }
