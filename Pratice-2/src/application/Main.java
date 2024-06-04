@@ -2,10 +2,7 @@ package application;
 
 import entities.Product;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -33,10 +30,10 @@ public class Main {
         }
 
         System.out.println();
-        System.out.print("Informe o id do produto que deseja atualizar o preço: ");
-        int prodSearch = sc.nextInt();
+        System.out.print("Informe o nome do produto que deseja atualizar o preço: ");
+        String prodSearch = sc.next();
 
-        Product prod = list.stream().filter(x -> x.getId() == prodSearch).findFirst().orElse(null);
+        Product prod = list.stream().filter(x -> Objects.equals(x.getName(), prodSearch)).findFirst().orElse(null);
         if (prod == null) {
             System.out.println("Product does not exist!");
         } else {
