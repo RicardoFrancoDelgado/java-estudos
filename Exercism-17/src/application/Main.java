@@ -59,9 +59,11 @@ public class Main {
             System.out.println(e);
         }
 
-
-
         sc.close();
+    }
+    public static boolean hasId(List<Employee> list, int id) {
+        Employee emp = list.stream().filter(x -> x.getId() == id).findFirst().orElse(null);
+        return emp != null;
     }
 
 //    Método manual de buscar o id informado
@@ -74,9 +76,6 @@ public class Main {
 //        return null;
 //    }
 
-    public static boolean hasId(List<Employee> list, int id) {
-        Employee emp = list.stream().filter(x -> x.getId() == id).findFirst().orElse(null);
-        return emp != null;
-    }
+
 
 }
