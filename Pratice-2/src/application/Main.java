@@ -16,7 +16,7 @@ public class Main {
 
         for (int i = 0; i < n; i++) {
             System.out.println();
-            System.out.println("Product #" + (i + 1) + ":");
+            System.out.println("Produto #" + (i + 1) + ":");
             System.out.print("Id: ");
             Integer id = sc.nextInt();
             System.out.print("Nome: ");
@@ -35,15 +35,28 @@ public class Main {
 
         Product prod = list.stream().filter(x -> Objects.equals(x.getName(), prodSearch)).findFirst().orElse(null);
         if (prod == null) {
-            System.out.println("Product does not exist!");
+            System.out.println("Produto não existe!");
         } else {
-            System.out.print("Enter the new price: ");
+            System.out.print("Informe o novo preço: ");
             double newPrice = sc.nextDouble();
             prod.setPrice(newPrice);
         }
 
         System.out.println();
-        System.out.println("List of products");
+        System.out.print("Informe o ID do produto que deseja aumentar o preço: ");
+        int idSearch = sc.nextInt();
+
+        prod = list.stream().filter(x -> x.getId() == idSearch).findFirst().orElse(null);
+        if (prod == null) {
+            System.out.println("Produto não existe!");
+        } else {
+            System.out.print("Informe a porcentagem que o preço irá aumentar:  ");
+            double percentage = sc.nextDouble();
+            prod.increasePrice(percentage);
+        }
+
+        System.out.println();
+        System.out.println("Lista de produtos");
 
 
         for (Product p : list) {
