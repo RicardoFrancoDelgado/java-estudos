@@ -19,6 +19,10 @@ public class Main {
             System.out.println("Produto #" + (i + 1) + ":");
             System.out.print("Id: ");
             Integer id = sc.nextInt();
+            while (hasId(list, id)) {
+                System.out.println("ID do produto já existe! Por favor informe outro id");
+                id = sc.nextInt();
+            }
             System.out.print("Nome: ");
             sc.nextLine();
             String name = sc.nextLine();
@@ -64,6 +68,11 @@ public class Main {
         }
 
         sc.close();
+    }
+
+    public static boolean hasId(List<Product> list, int id) {
+        Product prod = list.stream().filter(x -> x.getId() == id).findFirst().orElse(null);
+        return prod != null;
     }
 
 }
